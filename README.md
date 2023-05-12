@@ -13,7 +13,7 @@ A [spatial analysis](http://en.wikipedia.org/wiki/Spatial_analysis) library writ
 
 Turf for Swift is **experimental** and its public API is subject to change. Please use with care and open issues for any problems you see or missing features that should be added.
 
-## Requirements
+## Requirements 
 
 Turf is written in Swift 4. It requires Xcode 9.x and supports the following minimum deployment targets:
 
