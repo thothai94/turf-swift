@@ -1,22 +1,15 @@
-# This workflow will build a Swift project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+name: Test Xcode target
 
-name: Swift
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: [push, pull_request]
 
 jobs:
   build:
-
-    runs-on: macos-latest
-
+    runs-on: macOS-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: TurfTests
+    - uses: actions/checkout@v2
+    - name: Install Xcode
+      uses: actions/setup-xcode@v2
+      with:
+        xcode-version: '12.x' # replace with your desired Xcode version
+    - name: Build Xcode target
+      run: xcodebuild -project Turf.xcodeproj -scheme TurfTests -destination 'platform=iOS Simulator,name=iPhone 12' test
