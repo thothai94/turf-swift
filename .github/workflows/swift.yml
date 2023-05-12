@@ -6,15 +6,20 @@ jobs:
   build:
     name: Build and Test default scheme using any available iPhone simulator
     runs-on: macos-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default="TurfTests"
+          default="All Tests"
           echo $default | cat >default
           echo Using default scheme: $default
+      - name: "Carthage Bootstrap"
+        uses: olejnjak/carthage-workaround@v1
+        with:
+            action: bootstrap --platform iOS  --use-xcframeworks --cache-builds
       - name: Build
         env:
           scheme: ${{ 'default' }}
