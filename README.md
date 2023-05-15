@@ -1,8 +1,13 @@
 # Turf for Swift 
-
-Copyright (c) 2023 MapLibre contributors
-
 Turf for Swift is **experimental** and its public API is subject to change. Please use with care and open issues for any problems you see or missing features that should be added.
+
+## Why have we forked
+
+We wanted to upgrade the SDK from iOS 9.0 to 12.0.
+
+## What have we changed
+
+Upgrade iOS version from 9.0 to 12.0.
 
 ## Requirements 
 
@@ -115,3 +120,5 @@ print(json)
 */
 
 ```
+
+Copyright (c) 2023 MapLibre contributors
